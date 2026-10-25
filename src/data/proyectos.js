@@ -37,7 +37,7 @@ export const proyectos = [
       },
     ],
 
-    tecnologias: ['React', 'TypeScript', 'LocalStorage'],
+    tecnologias: ['React', 'TypeScript', 'LocalStorage', 'Html2Canvas', 'SweetAlert2',],
     demo: 'https://control-pesos.pages.dev/',
     repositorio: null,
   },
