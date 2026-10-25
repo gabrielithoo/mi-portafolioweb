@@ -5,6 +5,7 @@ import SobreMi from './sections/SobreMi'
 import Proyectos from './sections/Proyectos'
 import Tecnologias from './sections/Tecnologias'
 import Contacto from './sections/Contacto'
+import Certificados from './sections/Certificados'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <SobreMi />
         <Proyectos />
         <Tecnologias />
+        <Certificados />
         <Contacto />
       </main>
 
