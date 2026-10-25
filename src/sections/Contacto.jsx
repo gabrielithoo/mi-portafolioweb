@@ -12,7 +12,7 @@ export default function Contacto() {
       className="mx-auto max-w-6xl px-6 py-24"
     >
       <div className="border-t border-white/10 pt-16">
-        <SectionTitle id="titulo-contacto" etiqueta="04 / Contacto">
+        <SectionTitle id="titulo-contacto" etiqueta="05 / Contacto">
           Conversemos
         </SectionTitle>
 
