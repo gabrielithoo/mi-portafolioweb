@@ -105,7 +105,7 @@ export default function SobreMi() {
                   Aprendo construyendo proyectos que responden a
                   necesidades reales. Con Sistema de Pesos busco
                   simplificar el registro de trabajadores, pesos y
-                  totales durante una cosecha.
+                  totales durante una jornada laboral.
                 </p>
               </div>
             </div>

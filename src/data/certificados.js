@@ -1,5 +1,5 @@
 // Archivo: src/data/certificados.js
-const carpeta = `${import.meta.env.BASE_URL}images_certificados/`
+const carpeta = `${import.meta.env.BASE_URL}images/images_certificados/`
 
 export const certificados = [
   {

@@ -12,7 +12,6 @@ export const categoriasTecnologias = [
     tecnologias: [
       { nombre: 'Java', icono: 'java-original.svg' },
       { nombre: 'JavaScript', icono: 'javascript-original.svg' },
-      { nombre: 'Python', icono: 'python-original.svg' },
       { nombre: 'TypeScript', icono: 'typescript-original.svg' },
     ],
   },
@@ -45,7 +44,7 @@ export const categoriasTecnologias = [
     tecnologias: [
       { nombre: 'MySQL', icono: 'mysql-original.svg' },
       { nombre: 'PostgreSQL', icono: 'postgresql-original.svg' },
-      { nombre: 'Oracle', icono: 'oracle-original.svg' },
+      
     ],
   },
   {
