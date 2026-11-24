@@ -1,39 +1,87 @@
+import { useId, useRef, useState } from 'react'
 import ExternalLink from '../ui/ExternalLink'
 
 export default function CertificadoCard({ certificado }) {
-  const { nombre, emisor, imagen, enlace } = certificado
+  const { nombre, emisor, imagen, descripcion, enlace } = certificado
+  const [abierto, setAbierto] = useState(false)
+  const detallesId = useId()
+  const detallesRef = useRef(null)
+  const botonRef = useRef(null)
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/60">
-      <div className="border-b border-white/10 bg-zinc-950 p-5 sm:p-6">
-        <div className="aspect-[4/3]">
-          <img
-            src={imagen}
-            alt={`Certificado de ${nombre} emitido por ${emisor}`}
-            loading="lazy"
-            className="h-full w-full object-contain"
-          />
-        </div>
-      </div>
+    <article
+      className="mx-auto w-full min-w-0 max-w-sm"
+      onPointerLeave={(evento) => {
+        if (evento.pointerType === 'mouse' && !detallesRef.current?.contains(document.activeElement)) {
+          setAbierto(false)
+        }
+      }}
+      onBlur={(evento) => {
+        if (!evento.currentTarget.contains(evento.relatedTarget)) setAbierto(false)
+      }}
+      onKeyDown={(evento) => {
+        if (evento.key === 'Escape' && abierto) {
+          evento.preventDefault()
+          setAbierto(false)
+          botonRef.current?.focus()
+        }
+      }}
+    >
+      <button
+        ref={botonRef}
+        type="button"
+        aria-label={`${abierto ? 'Ocultar' : 'Mostrar'} detalles de ${nombre}`}
+        aria-expanded={abierto}
+        aria-controls={detallesId}
+        onPointerEnter={(evento) => {
+          if (evento.pointerType === 'mouse') setAbierto(true)
+        }}
+        onClick={() => setAbierto((anterior) => !anterior)}
+        className="relative mx-auto block w-2/3 cursor-pointer rounded-md border border-amber-400/45 p-1.5 transition-[width,border-color,box-shadow] duration-300 ease-out aria-expanded:w-full aria-expanded:border-amber-400 aria-expanded:shadow-xl aria-expanded:shadow-amber-400/10 motion-reduce:transition-none"
+      >
+        <img
+          src={imagen}
+          alt={`Certificado de ${nombre} emitido por ${emisor}`}
+          width={1650}
+          height={1275}
+          loading="lazy"
+          decoding="async"
+          className="block aspect-[22/17] w-full rounded-sm object-contain"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute right-3 bottom-3 flex size-8 items-center justify-center rounded-full border border-amber-400/50 bg-zinc-950 text-lg text-amber-300"
+        >
+          {abierto ? '−' : '+'}
+        </span>
+      </button>
 
-      <div className="flex flex-1 flex-col items-start p-6 sm:p-8">
-        <p className="text-xs tracking-[0.2em] text-zinc-400 uppercase">
-          {emisor}
-        </p>
+      <div
+        ref={detallesRef}
+        id={detallesId}
+        inert={!abierto}
+        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none ${
+          abierto ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="px-1 pt-6 pb-2">
+            <p className="text-sm text-amber-300">{emisor}</p>
+            <h3 className="mt-1 text-xl font-medium tracking-tight text-zinc-100 sm:text-2xl">
+              {nombre}
+            </h3>
+            <p className="mt-2 max-w-md leading-7 text-zinc-300">
+              {descripcion}
+            </p>
 
-        <h3 className="mt-3 text-2xl font-medium tracking-tight text-zinc-100">
-          {nombre}
-          <span className="text-amber-400">.</span>
-        </h3>
-
-        <div className="mt-auto pt-6">
-          <ExternalLink
-            href={enlace || imagen}
-            className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 px-5 py-2.5 text-sm text-zinc-100 transition-colors hover:border-amber-400 hover:bg-amber-500/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
-          >
-            {enlace ? 'Verificar certificado' : 'Ver certificado'}
-            <span className="sr-only"> de {nombre}</span>
-          </ExternalLink>
+            <ExternalLink
+              href={enlace || imagen}
+              className="mt-4 inline-flex rounded-sm text-sm font-medium text-amber-300 underline decoration-amber-400/40 underline-offset-4 transition-colors hover:text-amber-200 focus-visible:outline-offset-2"
+            >
+              {enlace ? 'Verificar certificado' : 'Ver certificado'}
+              <span className="sr-only"> de {nombre}</span>
+            </ExternalLink>
+          </div>
         </div>
       </div>
     </article>

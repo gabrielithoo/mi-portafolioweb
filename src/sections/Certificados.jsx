@@ -15,7 +15,7 @@ export default function Certificados() {
         de Oracle Academy.
       </p>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="mx-auto grid max-w-4xl items-start gap-8 sm:grid-cols-2 lg:gap-12">
         {certificados.map((certificado) => (
           <CertificadoCard
             key={certificado.id}
