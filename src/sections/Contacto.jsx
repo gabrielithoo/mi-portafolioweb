@@ -114,7 +114,7 @@ export default function Contacto() {
               rel="noopener noreferrer"
               className="rounded-full border border-emerald-500/40 px-7 py-3 text-sm text-zinc-100 transition-colors hover:bg-emerald-500/10"
             >
-              WhatsApp · +51 937 274 818 ↗
+              WhatsApp ↗
             </a>
             <a
               href={`mailto:${correo}`}
