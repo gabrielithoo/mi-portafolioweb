@@ -1,30 +1,13 @@
-// Archivo: src/components/CarruselImagenes.jsx
 import { useEffect, useState } from 'react'
+import useReducedMotion from '../../hooks/useReducedMotion'
 
 export default function CarruselImagenes({ imagenes = [], nombre }) {
   const [indice, setIndice] = useState(0)
   const [interactuando, setInteractuando] = useState(false)
-  const [reducirMovimiento, setReducirMovimiento] = useState(true)
+  const reducirMovimiento = useReducedMotion()
 
   const total = imagenes.length
   const actual = total > 0 ? indice % total : 0
-
-  useEffect(() => {
-    const preferencia = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    )
-
-    function actualizar() {
-      setReducirMovimiento(preferencia.matches)
-    }
-
-    actualizar()
-    preferencia.addEventListener('change', actualizar)
-
-    return () => {
-      preferencia.removeEventListener('change', actualizar)
-    }
-  }, [])
 
   useEffect(() => {
     if (total < 2 || interactuando || reducirMovimiento) return

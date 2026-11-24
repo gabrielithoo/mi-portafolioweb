@@ -1,5 +1,6 @@
-// Archivo: src/data/certificados.js
-const carpeta = `${import.meta.env.BASE_URL}images_certificados/`
+import { rutaPublica } from '../utils/rutaPublica'
+
+const carpeta = rutaPublica('images_certificados/')
 
 export const certificados = [
   {

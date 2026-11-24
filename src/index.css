@@ -1,4 +1,3 @@
-/* Archivo: src/index.css */
 @import "tailwindcss";
 
 :root {
@@ -39,9 +38,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .video-dorado {
-    display: none;
   }
 }

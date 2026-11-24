@@ -1,14 +1,10 @@
-// Archivo: src/components/CategoriaTecnologias.jsx
 import TecnologiaCard from './TecnologiaCard'
 
-export default function CategoriaTecnologias({
-  categoria,
-  className = '',
-}) {
+export default function CategoriaTecnologias({ categoria }) {
   return (
     <article
       aria-labelledby={`categoria-${categoria.id}`}
-      className={`relative overflow-hidden rounded-2xl border border-orange-500/20 bg-zinc-900/60 p-5 sm:p-7 ${className}`}
+      className="relative overflow-hidden rounded-2xl border border-orange-500/20 bg-zinc-900/60 p-5 sm:p-7"
     >
       <header className="flex items-start gap-4">
         <span

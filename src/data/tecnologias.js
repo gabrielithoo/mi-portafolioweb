@@ -1,5 +1,6 @@
-// Archivo: src/data/tecnologias.js
-const imagenes = `${import.meta.env.BASE_URL}images/`
+import { rutaPublica } from '../utils/rutaPublica'
+
+const imagenes = rutaPublica('images/')
 
 export const fondoTecnologias = `${imagenes}fondo-card.mp4`
 
@@ -44,7 +45,6 @@ export const categoriasTecnologias = [
     tecnologias: [
       { nombre: 'MySQL', icono: 'mysql-original.svg' },
       { nombre: 'PostgreSQL', icono: 'postgresql-original.svg' },
-      
     ],
   },
   {

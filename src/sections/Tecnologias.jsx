@@ -1,15 +1,11 @@
-// Archivo: src/sections/Tecnologias.jsx
-import SectionTitle from '../components/SectionTitle'
-import CategoriaTecnologias from '../components/CategoriaTecnologias'
+import CategoriaTecnologias from '../components/tecnologias/CategoriaTecnologias'
+import Section from '../components/ui/Section'
+import SectionTitle from '../components/ui/SectionTitle'
 import { categoriasTecnologias } from '../data/tecnologias'
 
 export default function Tecnologias() {
   return (
-    <section
-      id="tecnologias"
-      aria-labelledby="titulo-tecnologias"
-      className="mx-auto max-w-6xl px-6 py-24"
-    >
+    <Section id="tecnologias">
       <SectionTitle id="titulo-tecnologias" etiqueta="03 / Herramientas">
         Tecnologías que uso
       </SectionTitle>
@@ -20,13 +16,10 @@ export default function Tecnologias() {
       </p>
 
       <div className="grid items-stretch gap-6 lg:grid-cols-2">
-  {categoriasTecnologias.map((categoria) => (
-    <CategoriaTecnologias
-      key={categoria.id}
-      categoria={categoria}
-    />
-  ))}
-</div>
-    </section>
+        {categoriasTecnologias.map((categoria) => (
+          <CategoriaTecnologias key={categoria.id} categoria={categoria} />
+        ))}
+      </div>
+    </Section>
   )
 }

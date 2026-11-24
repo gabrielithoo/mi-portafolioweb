@@ -1,15 +1,11 @@
-// Archivo: src/sections/Proyectos.jsx
-import SectionTitle from '../components/SectionTitle'
-import ProyectoCard from '../components/ProyectoCard'
+import ProyectoCard from '../components/proyectos/ProyectoCard'
+import Section from '../components/ui/Section'
+import SectionTitle from '../components/ui/SectionTitle'
 import { proyectos } from '../data/proyectos'
 
 export default function Proyectos() {
   return (
-    <section
-      id="proyectos"
-      aria-labelledby="titulo-proyectos"
-      className="mx-auto max-w-6xl px-6 py-24"
-    >
+    <Section id="proyectos">
       <SectionTitle id="titulo-proyectos" etiqueta="02 / Trabajo personal">
         Proyectos
       </SectionTitle>
@@ -19,6 +15,6 @@ export default function Proyectos() {
           <ProyectoCard key={proyecto.id} proyecto={proyecto} />
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

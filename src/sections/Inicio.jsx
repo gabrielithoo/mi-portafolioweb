@@ -1,4 +1,6 @@
-// Archivo: src/sections/Inicio.jsx
+import { perfil } from '../data/sitio'
+import { rutaPublica } from '../utils/rutaPublica'
+
 export default function Inicio() {
   return (
     <section
@@ -6,22 +8,19 @@ export default function Inicio() {
       aria-labelledby="titulo-inicio"
       className="relative isolate flex min-h-[90svh] items-center overflow-hidden bg-zinc-900"
     >
-      {/* GIF original: mantiene la animación */}
       <img
-        src={`${import.meta.env.BASE_URL}images/fondo-inicio.gif`}
+        src={rutaPublica('images/fondo-inicio.gif')}
         alt=""
         aria-hidden="true"
         fetchPriority="high"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[75%_center] grayscale md:object-center"
       />
 
-      {/* Oscurece principalmente el área del texto */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-linear-to-r from-zinc-950/85 via-zinc-950/45 to-zinc-950/10"
       />
 
-      {/* Une el paisaje con la siguiente sección */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent"
@@ -29,7 +28,7 @@ export default function Inicio() {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-28 sm:py-36">
         <p className="mb-6 text-xs tracking-[0.3em] text-zinc-300 uppercase">
-          Gabriel · Desarrollo de software
+          {perfil.nombre} · Desarrollo de software
         </p>
 
         <h1

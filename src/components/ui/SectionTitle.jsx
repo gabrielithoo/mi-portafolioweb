@@ -1,4 +1,3 @@
-// Archivo: src/components/SectionTitle.jsx
 export default function SectionTitle({ id, etiqueta, children }) {
   return (
     <header className="mb-10">

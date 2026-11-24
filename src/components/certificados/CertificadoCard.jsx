@@ -1,4 +1,5 @@
-// Archivo: src/components/CertificadoCard.jsx
+import ExternalLink from '../ui/ExternalLink'
+
 export default function CertificadoCard({ certificado }) {
   const { nombre, emisor, imagen, enlace } = certificado
 
@@ -26,18 +27,13 @@ export default function CertificadoCard({ certificado }) {
         </h3>
 
         <div className="mt-auto pt-6">
-          <a
+          <ExternalLink
             href={enlace || imagen}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 px-5 py-2.5 text-sm text-zinc-100 transition-colors hover:border-amber-400 hover:bg-amber-500/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400"
           >
             {enlace ? 'Verificar certificado' : 'Ver certificado'}
-            <span aria-hidden="true">↗</span>
-            <span className="sr-only">
-              {' '}de {nombre} (se abre en otra pestaña)
-            </span>
-          </a>
+            <span className="sr-only"> de {nombre}</span>
+          </ExternalLink>
         </div>
       </div>
     </article>

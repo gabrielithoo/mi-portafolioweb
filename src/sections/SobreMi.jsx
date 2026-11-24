@@ -1,22 +1,9 @@
-// Archivo: src/sections/SobreMi.jsx
-
-const perfil = {
-  nombre: 'Gabriel',
-  especialidad: 'Desarrollador Backend',
-  foto: `${import.meta.env.BASE_URL}images/perfil.webp`,
-}
-
-// Si después añades una imagen de fondo, coloca su ruta aquí.
-const fondo = null
+import Section from '../components/ui/Section'
+import { perfil } from '../data/sitio'
 
 export default function SobreMi() {
   return (
-    <section
-      id="sobre-mi"
-      aria-labelledby="titulo-sobre-mi"
-      className="mx-auto max-w-6xl px-6 py-24"
-    >
-      {/* Presentación de la sección */}
+    <Section id="sobre-mi">
       <header className="mb-12">
         <h2
           id="titulo-sobre-mi"
@@ -31,25 +18,12 @@ export default function SobreMi() {
         </p>
       </header>
 
-      {/* Contenedor principal */}
       <div className="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-zinc-900">
-        {/* Fondo decorativo */}
-        {fondo && (
-          <img
-            src={fondo}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            className="absolute inset-0 -z-20 h-full w-full object-cover grayscale"
-          />
-        )}
-
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-zinc-950 via-zinc-950/80 to-zinc-800/60"
         />
 
-        {/* Esquinas doradas */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute top-0 left-0 h-16 w-16 rounded-tl-3xl border-t border-l border-amber-500/40"
@@ -61,7 +35,6 @@ export default function SobreMi() {
         />
 
         <div className="grid items-center gap-10 px-6 py-12 sm:px-10 lg:grid-cols-[280px_1fr] lg:gap-12 lg:py-16">
-          {/* Foto e identidad */}
           <div className="flex flex-col items-center text-center">
             <img
               src={perfil.foto}
@@ -77,7 +50,7 @@ export default function SobreMi() {
             </h3>
 
             <p className="mt-2 text-sm text-zinc-400">
-              Estudiante de Desarrollo de Software
+              {perfil.formacion}
             </p>
 
             <p className="mt-4 font-mono text-sm text-amber-400">
@@ -85,7 +58,6 @@ export default function SobreMi() {
             </p>
           </div>
 
-          {/* Descripción y contenido ampliable */}
           <div>
             <div className="rounded-2xl border border-white/15 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-md sm:p-9">
               <div className="space-y-6 text-base leading-8 text-zinc-300">
@@ -132,6 +104,6 @@ export default function SobreMi() {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

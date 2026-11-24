@@ -1,6 +1,6 @@
-// Archivo: src/data/proyectos.js
-const rutaCapturas =
-  `${import.meta.env.BASE_URL}images_control-pesos/`
+import { rutaPublica } from '../utils/rutaPublica'
+
+const rutaCapturas = rutaPublica('images_control-pesos/')
 
 export const proyectos = [
   {
@@ -37,7 +37,7 @@ export const proyectos = [
       },
     ],
 
-    tecnologias: ['React', 'TypeScript', 'LocalStorage', 'Html2Canvas', 'SweetAlert2',],
+    tecnologias: ['React', 'TypeScript', 'LocalStorage', 'Html2Canvas', 'SweetAlert2'],
     demo: 'https://control-pesos.pages.dev/',
     repositorio: null,
   },
